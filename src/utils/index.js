@@ -27,6 +27,6 @@ export function generalKeyFormatter(obj, key) {
 	return res;
 }
 
-export function nameFormatter(obj) {
-	return generalKeyFormatter(obj, 'name');
+export function nameFormatter(obj, key = 'name') {
+	return generalKeyFormatter(obj, key);
 }
