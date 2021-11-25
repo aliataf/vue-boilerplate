@@ -1,10 +1,21 @@
 import allPermissions from '@/config/permissions';
 import { getDeep } from '@/utils';
 
+function initUser() {
+	let res = null;
+	try {
+		res = JSON.parse(localStorage.getItem('user')) || null;
+	} catch {
+		res = {};
+	} finally {
+		return res;
+	}
+}
+
 function getState() {
 	return {
 		loading: false,
-		user: JSON.parse(localStorage.getItem('user')) || null,
+		user: initUser(),
 		expiredPasswordFlag: JSON.parse(localStorage.getItem('expiredPasswordFlag')) || false,
 	};
 }
